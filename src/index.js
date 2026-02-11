@@ -6,7 +6,7 @@ import { Task } from "./task.js";
 
 
 const addProjectBtn = document.getElementById("add-project");
-const mainContainer = document.getElementById("projects-container");
+const mainContainer = document.querySelector(".projects-container");
 
 const obj = [];
 
