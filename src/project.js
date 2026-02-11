@@ -15,6 +15,7 @@ export class Project {
     }
 
     showProject(parent) {
+        this.projectEl.classList.add("folder");
         this.projectEl.innerHTML= `
             <img src="${fileIcon}">
             <p>${this.projectName}</p>

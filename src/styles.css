@@ -16,3 +16,38 @@ header h1 {
     font-size: 2.2rem;
     margin-bottom: 8px;
 }
+
+#add-project-container, .folder {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+}
+
+#projects-container {
+    display: flex;
+    padding: 2rem 1rem;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#add-project-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#add-project-container button {
+    width: 50%;
+    height: 50%;
+    border-radius: 50%;
+    border: none;
+    background-color: #4CC9FE;
+    font-family: inherit;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.folder img {
+    width: 90%;
+}
