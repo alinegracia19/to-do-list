@@ -47,8 +47,10 @@ if(savedData) {
 
 function renderProjectDetail(project) {
     mainContainer.innerHTML = "";
+    mainContainer.style.display = "block";
 
     const title = document.createElement("h2");
+    title.classList.add("title")
     title.textContent = project.projectName;
     mainContainer.appendChild(title);
 

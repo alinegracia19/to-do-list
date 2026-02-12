@@ -84,7 +84,7 @@ input, select {
     border: 1px solid gray;
 }
 
-form button {
+form button, #add-task-btn {
     margin-top: 10px;
     padding: 10px 15px;
     color: white;
@@ -92,12 +92,12 @@ form button {
     border-radius: 5px;
 }
 
-#save-task, #save-project {
+#save-task, #save-project, #add-task-btn {
     background-color: green;
     margin-right: 10px;
 }
 
-#save-task:hover, #save-project:hover {
+#save-task:hover, #save-project:hover, #add-task-btn:hover {
     background-color: rgb(11, 75, 11);
 }
 
