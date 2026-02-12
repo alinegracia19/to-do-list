@@ -8,6 +8,7 @@ export default {
     filename: "main.js",
     path: path.resolve(import.meta.dirname, "dist"),
     clean: true,
+    publicPath: "./",
   },
   devtool: "eval-source-map",
   devServer: {
@@ -15,7 +16,7 @@ export default {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/template.html",
+      template: "./template.html",
     }),
   ],
   module: {
