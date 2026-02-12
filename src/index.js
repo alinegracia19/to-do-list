@@ -49,15 +49,24 @@ function renderProjectDetail(project) {
     mainContainer.innerHTML = "";
     mainContainer.style.display = "block";
 
+    const backContainer = document.createElement("div");
+    backContainer.id = "back-container";
+    const backIcon = document.createElement("img");
+
+    const titleTaskContainer = document.createElement("div");
+    titleTaskContainer.id = "title-container";
+
     const title = document.createElement("h2");
     title.classList.add("title")
     title.textContent = project.projectName;
-    mainContainer.appendChild(title);
+    titleTaskContainer.appendChild(title);
 
     const addTaskBtn = document.createElement("button");
     addTaskBtn.textContent = "+ Add Task";
     addTaskBtn.id = "add-task-btn";
-    mainContainer.appendChild(addTaskBtn);
+    titleTaskContainer.appendChild(addTaskBtn);
+
+    mainContainer.appendChild(titleTaskContainer);
 
     addTaskBtn.addEventListener("click", () => {
         const modal = new AddTask(mainContainer, (taskDesc, dueDate, priority) => {
