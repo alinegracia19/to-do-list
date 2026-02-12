@@ -3,28 +3,16 @@ import { Project } from "./project.js";
 import { addProject } from "./add-project.js";
 import { AddTask } from "./add-task.js";
 import { Task } from "./task.js";
-import leftArrow from "./left-arrow_10117847.png";
+import leftArrow from "./left-arrow.png";
 
 
-const addProjectBtn = document.getElementById("add-project");
+// const addProjectBtn = document.getElementById("add-project");
 const mainContainer = document.querySelector(".projects-container");
-
 const obj = [];
 
-addProjectBtn.addEventListener("click",() => {
-    const modal = new addProject(mainContainer, (name) => {
-        const newProject = new Project(name, (project) => {
-            renderProjectDetail(project);
-        });
-        obj.push(newProject);
-
-        localStorage.setItem("myProjects", JSON.stringify(obj));
-
-        newProject.showProject(mainContainer);
-    });
-
-    modal.show();
-})
+// addProjectBtn.addEventListener("click",() => {
+//     handleAddProject();
+// });
 
 const savedData = localStorage.getItem("myProjects");
 
@@ -42,8 +30,27 @@ if(savedData) {
         })
 
         obj.push(loadedProject);
-        loadedProject.showProject(mainContainer);
-    })
+        // loadedProject.showProject(mainContainer);
+    });
+}
+
+renderAll();
+
+function handleAddProject() {
+    const modal = new addProject(mainContainer, (name) => {
+        const newProject = new Project(name, (project) => {
+            renderProjectDetail(project);
+        });
+        obj.push(newProject);
+
+        localStorage.setItem("myProjects", JSON.stringify(obj));
+
+        // newProject.showProject(mainContainer);
+
+        renderAll();
+    });
+
+    modal.show();
 }
 
 function renderProjectDetail(project) {
@@ -58,11 +65,7 @@ function renderProjectDetail(project) {
     mainContainer.appendChild(backContainer);
 
     backIcon.addEventListener("click", () => {
-        mainContainer.innerHTML = "";
-        mainContainer.style.display = "flex";
-        obj.forEach(project => {
-            project.showProject(mainContainer);
-        })
+        renderAll();
     })
 
     const titleTaskContainer = document.createElement("div");
@@ -94,9 +97,27 @@ function renderProjectDetail(project) {
     project.tasks.forEach(task => {
             task.showTask(mainContainer, () => {
                 localStorage.setItem("myProjects", JSON.stringify(obj));
-                console.log("saved");
             });
         })
+}
+
+function renderAll() {
+    mainContainer.innerHTML = "";
+        mainContainer.style.display = "flex";
+        obj.forEach(project => {
+            project.showProject(mainContainer);
+        })
+
+    const div = document.createElement("div");
+    div.id = "add-project-container";
+    div.innerHTML = `
+            <button id="add-project">+</button>
+            <p>Create new project</p>
+    `;
+    mainContainer.appendChild(div);
+
+    const newBtn = div.querySelector("#add-project");
+    newBtn.addEventListener("click", handleAddProject);
 }
 
 
