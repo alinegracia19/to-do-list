@@ -72,11 +72,11 @@ form {
     background-color: #96d9f5;
 }
 
-label, input, select {
+label, input:not(input[type=checkbox]), select {
     display: block;
 }
 
-input, select {
+input:not(input[type=checkbox]), select {
     width: 100%;
     line-height: 2;
     margin: 8px 0;
@@ -118,7 +118,7 @@ select {
     justify-content: space-between;
     align-items: center;
     max-width:900px;
-    margin: 0 auto;;
+    margin: 0 auto 20px auto;
 }
 
 #back-container {
@@ -128,4 +128,21 @@ select {
 
 #back-container img {
     width: 50px;
+}
+
+.task {
+    max-width: 900px;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#check-title {
+    display: flex;
+    flex-direction: row;
+}
+
+#check-title input {
+    margin-right: 8px;
 }

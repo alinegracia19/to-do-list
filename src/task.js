@@ -10,9 +10,9 @@ export class Task {
         const div = document.createElement("div");
         div.classList.add("task");
         div.innerHTML = `
-            <div class="${this.isFinished ? 'completed' : ''}">
+            <div id="check-title" class="${this.isFinished ? 'completed' : ''}">
                 <input type="checkbox" ${this.isFinished ? "checked" : ""}>
-                <p>${this.taskDesc}</p>
+                <label>${this.taskDesc}</label>
             </div>
             <p>${this.priority}</p>
             <p>${this.dueDate}</p>
