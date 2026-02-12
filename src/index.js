@@ -57,6 +57,14 @@ function renderProjectDetail(project) {
     backContainer.appendChild(backIcon);
     mainContainer.appendChild(backContainer);
 
+    backIcon.addEventListener("click", () => {
+        mainContainer.innerHTML = "";
+        mainContainer.style.display = "flex";
+        obj.forEach(project => {
+            project.showProject(mainContainer);
+        })
+    })
+
     const titleTaskContainer = document.createElement("div");
     titleTaskContainer.id = "title-container";
 
