@@ -3,6 +3,7 @@ import { Project } from "./project.js";
 import { addProject } from "./add-project.js";
 import { AddTask } from "./add-task.js";
 import { Task } from "./task.js";
+import leftArrow from "./left-arrow_10117847.png";
 
 
 const addProjectBtn = document.getElementById("add-project");
@@ -52,6 +53,9 @@ function renderProjectDetail(project) {
     const backContainer = document.createElement("div");
     backContainer.id = "back-container";
     const backIcon = document.createElement("img");
+    backIcon.src = leftArrow;
+    backContainer.appendChild(backIcon);
+    mainContainer.appendChild(backContainer);
 
     const titleTaskContainer = document.createElement("div");
     titleTaskContainer.id = "title-container";
