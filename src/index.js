@@ -122,3 +122,8 @@ function renderAll() {
 
 
 
+window.addEventListener("DOMContentLoaded", () => {
+    renderAll();
+});
+
+
